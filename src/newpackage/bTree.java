@@ -11,30 +11,33 @@ package newpackage;
  */
 public class bTree
 {
+    //variables
     private bTreeNode root;
     private bTreeNode temp;
     
+    //set root to null
     public bTree()
     {
         root=null;
     }
     
+    //empty tree
     public boolean isEmpty()
     { 
         return (root == null); 
     } 
     
-    public void Add(String NodeData)// int wordCount)
+    //add string to tree with RecAddNode
+    public void Add(String NodeData)
     {
         if (NodeData.compareTo("") != 0)
         {
             temp = new bTreeNode();
             temp.setData(NodeData);
-            //temp.counter = wordCount;
+            
             if(root == null)
             {
                 root = temp;
-                //temp.counter ++;
             }
 
              else
@@ -44,15 +47,16 @@ public class bTree
         }
     }
     
+    //recursively add to tree
     private void RecAddNode(bTreeNode CurrentNode)
     {
+        //sort nodes as they are added
         int order = CurrentNode.getData().compareTo(temp.data);
         if(order<0)
         {
             if(CurrentNode.leftnode == null)
             {
                 CurrentNode.leftnode = temp;
-               //temp.counter ++;
             }
             else
             {
@@ -72,18 +76,20 @@ public class bTree
                     
             }
         }
+        //increase count for duplicates
         else
         {
             CurrentNode.counter ++;
         }
     }
     
+    //print for recPrint
     public String Print()
     {
-        //counts = temp.counter;
         return recPrint(root);
     }
 
+    //print string with count
     private String recPrint(bTreeNode Current)
     {
         String tempString = "";    
