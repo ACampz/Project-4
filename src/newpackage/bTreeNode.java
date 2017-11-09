@@ -12,16 +12,17 @@ package newpackage;
 public class bTreeNode
 {
 
-
+    //create left & right nodes to sort
     public String data;
     int counter;
     bTreeNode leftnode;
     bTreeNode rightnode;
 
+    //get
     public String getData() {
         return data;
     }
-
+    
     public void setData(String data) {
         this.data = data;
         counter = 1;
